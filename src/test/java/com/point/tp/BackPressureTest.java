@@ -11,7 +11,7 @@ import reactor.core.scheduler.Schedulers;
 import java.util.function.Consumer;
 
 @Slf4j
-public class BackPressureTest1 {
+public class BackPressureTest {
 
     @Test
     public void should_back_pressure() {
@@ -45,22 +45,12 @@ public class BackPressureTest1 {
                     }
                     i++;
                 }
-//                stringFluxSink.complete();
-            }).run(), FluxSink.OverflowStrategy.DROP)
+            }).start())
 
-//            .publishOn(Schedulers.newElastic("Publish"))
+            .publishOn(Schedulers.newElastic("Publish"))
             .map(String::valueOf)
-//            .onBackpressureDrop()
-
+            .onBackpressureError()
             .subscribeOn(Schedulers.newElastic("Subscribers"))
-//            .subscribe(value -> {
-//                log.info("Display : " + value);
-//                try {
-//                    Thread.sleep(1000);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            })
             .subscribe(new BaseSubscriber<String>() {
                 @Override
                 protected void hookOnSubscribe(Subscription subscription) {
