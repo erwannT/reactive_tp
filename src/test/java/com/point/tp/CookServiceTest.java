@@ -9,7 +9,6 @@ import reactor.core.publisher.Mono;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 public class CookServiceTest {
 
@@ -46,7 +45,7 @@ public class CookServiceTest {
     }
 
     @Test
-    public void should_cook_two_burger_with_two_cook() throws ExecutionException, InterruptedException {
+    public void should_cook_two_burger_with_two_cook(){
 
         ParalleleCookService cookService = new ParalleleCookService();
         List<Burger> burgers = cookService.cookBurger(2);
@@ -58,7 +57,7 @@ public class CookServiceTest {
     }
 
     @Test
-    public void should_cook_six_burger_with_two_cook() throws ExecutionException, InterruptedException {
+    public void should_cook_six_burger_with_two_cook(){
 
         ParalleleCookService cookService = new ParalleleCookService();
         List<Burger> burgers = cookService.cookBurger(6);
@@ -70,7 +69,7 @@ public class CookServiceTest {
     }
 
     @Test
-    public void should_cook_burger_with_reactive() throws ExecutionException, InterruptedException {
+    public void should_cook_burger_with_reactive(){
 
 
         ReactiveCookService reactiveCookService = new ReactiveCookService();
@@ -85,7 +84,7 @@ public class CookServiceTest {
     }
 
     @Test
-    public void should_cook_many_many_many_many_burger_with_reactive() throws ExecutionException, InterruptedException {
+    public void should_cook_many_many_many_many_burger_with_reactive(){
 
         ReactiveCookService reactiveCookService = new ReactiveCookService();
 
@@ -96,6 +95,5 @@ public class CookServiceTest {
         LocalDateTime now = LocalDateTime.now();
 
         Assertions.assertThat(burgers).allMatch(burger -> burger.isHot(now));
-
     }
 }

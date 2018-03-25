@@ -10,13 +10,20 @@ import reactor.core.publisher.Mono;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Test class for {@link ReactiveCookClient}
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ReactiveCookClientTest {
 
+    /**
+     * Test method for {@link ReactiveCookClient#cook(Burger)}
+     */
     @Test
     public void should_cook_a_burger() {
 
+        // Given
         ReactiveCookClient client = new ReactiveCookClient();
 
         Mono<Cheese> monoCheese = client.takeCheese();
@@ -31,7 +38,6 @@ public class ReactiveCookClientTest {
         Bacon cookedBacon = baconMono1.block();
         assertThat(cookedBacon).isNotNull();
         assertThat(cookedBacon.getState()).isEqualTo(BaconState.COOKED);
-
 
         Mono<Bread> breadMono = client.takeBread();
         Bread bread = breadMono.block();
@@ -53,7 +59,7 @@ public class ReactiveCookClientTest {
         Tomato tomato = tomatoMono.block();
         assertThat(tomato).isNotNull();
 
-        Mono<Steak> steakMono = client.takeSteack();
+        Mono<Steak> steakMono = client.takeSteak();
         Steak steak = steakMono.block();
         assertThat(steak).isNotNull();
         Mono<Steak> steakMono1 = client.cookSteak(steak);
@@ -62,11 +68,12 @@ public class ReactiveCookClientTest {
         assertThat(cookSteak.getState()).isEqualTo(SteakState.COOKED);
 
         Burger burger = new Burger(cookedBacon,cutBread,cheese,salad,salsa, cookSteak, tomato);
+
+        // When
         Mono<Burger> cook = client.cook(burger);
+
+        // Then
         Burger burger1 = cook.block();
         assertThat(burger1).isNotNull();
-
-
-
     }
 }
