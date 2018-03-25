@@ -39,8 +39,12 @@ public class Burger {
         return Arrays.asList(bacon, bread, cheese, salad, salsa, steak, tomato);
     }
 
-    public boolean isHot(LocalDateTime now){
+    public boolean isHot(LocalDateTime now) {
         return release.isAfter(now.minus(3, ChronoUnit.SECONDS));
+    }
+
+    public boolean isComplete() {
+        return bacon != null && bread != null && cheese != null && salad != null && salsa != null && steak != null && tomato != null;
     }
 }
 
