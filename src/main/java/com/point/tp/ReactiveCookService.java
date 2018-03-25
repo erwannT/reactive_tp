@@ -64,7 +64,7 @@ public class ReactiveCookService {
             reactiveCookClient.takeTomato()
         ).
             // 11
-            reduce(new Burger(), this::addIngredientToBurger)
+            reduce(new Burger(), Burger::addIngredientToBurger)
             // 12
             .flatMap(reactiveCookClient::cook);
     }
@@ -80,32 +80,6 @@ public class ReactiveCookService {
             burgerMonos[i] = cookBurger();
         }
         return Flux.merge(burgerMonos);
-    }
-
-    /**
-     * Add the ingredient to the burger.
-     * All those intanceof are evil, but this is not the point :D
-     * @param burger
-     * @param ingredient
-     * @return
-     */
-    private Burger addIngredientToBurger(Burger burger, Ingredient ingredient) {
-        if (ingredient instanceof Bacon) {
-            burger.setBacon((Bacon) ingredient);
-        } else if (ingredient instanceof Bread) {
-            burger.setBread((Bread) ingredient);
-        } else if (ingredient instanceof Steak) {
-            burger.setSteak((Steak) ingredient);
-        } else if (ingredient instanceof Tomato) {
-            burger.setTomato((Tomato) ingredient);
-        } else if (ingredient instanceof Cheese) {
-            burger.setCheese((Cheese) ingredient);
-        } else if (ingredient instanceof Salad) {
-            burger.setSalad((Salad) ingredient);
-        } else if (ingredient instanceof Salsa) {
-            burger.setSalsa((Salsa) ingredient);
-        }
-        return burger;
     }
 
 }
