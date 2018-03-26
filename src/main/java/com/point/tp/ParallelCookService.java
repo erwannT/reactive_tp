@@ -4,9 +4,8 @@ import com.point.tp.client.model.Burger;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
-import java.util.concurrent.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import java.util.concurrent.CompletionService;
+import java.util.concurrent.ExecutorService;
 
 /**
  * Cook service used to make delightful burgers in parallel.
@@ -22,7 +21,8 @@ public class ParallelCookService {
     /**
      * Creates a pool of threads : the number of cooks you have in the kitchen.
      */
-    private final ExecutorService kitchen = Executors.newFixedThreadPool(2);
+    // TODO 2 Using Executors.newFixedThreadPool create a kitchen with two cooks
+    private final ExecutorService kitchen = null;
 
     /**
      * Cook some juicy burgers.
@@ -33,7 +33,8 @@ public class ParallelCookService {
     public List<Burger> cookBurger(int howMany) {
 
         // Creates an asynchronous service for the kitchen
-        CompletionService<Burger> completionService = new ExecutorCompletionService<>(kitchen);
+        // TODO 3 Create an ExecutorCompletionService for the kitchen
+        CompletionService<Burger> completionService = null;
 
         // Take all orders and submit them to the cooks
         sendOrders(howMany, completionService);
@@ -54,8 +55,7 @@ public class ParallelCookService {
      * @param completionService
      */
     private void sendOrders(int howMany, CompletionService<Burger> completionService) {
-        IntStream.range(0, howMany)
-                .forEach(i -> completionService.submit(cookService::cookBurger));
+        // TODO 4 Implement the sendOrder methods
     }
 
     /**
@@ -65,9 +65,9 @@ public class ParallelCookService {
      * @return
      */
     private List<Burger> getCookedBurgers(int howMany, CompletionService<Burger> completionService) {
-        return IntStream.range(0, howMany)
-                .mapToObj(i_ -> retrieveCookedBurger(completionService))
-                .collect(Collectors.toList());
+        // TODO 5 implement the getCookedBurgers
+        // Must calls the retrieveCookedBurger method
+        return null;
     }
 
     /**
@@ -78,12 +78,14 @@ public class ParallelCookService {
      * @throws RuntimeException if something bad happens
      */
     private Burger retrieveCookedBurger(CompletionService<Burger> completionService) {
-        try {
-            return completionService.take().get();
-        } catch (InterruptedException | ExecutionException e) {
-            log.error(e.getMessage(), e);
-            throw new RuntimeException(e);
-        }
+        //try {
+            // TODO 6 retrieve the next ready burger
+            // You will uncomment the try-catch block
+            return null;
+        //} catch (InterruptedException | ExecutionException e) {
+        //    log.error(e.getMessage(), e);
+        //    throw new RuntimeException(e);
+        //}
     }
 
 }

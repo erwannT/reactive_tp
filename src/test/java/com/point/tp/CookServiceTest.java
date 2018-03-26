@@ -51,6 +51,8 @@ public class CookServiceTest {
         Assertions.assertThat(burger.isHot(now)).isTrue();
     }
 
+    // TODO 1 Run this test, it should fail
+    // TODO 7 Run this test, it should pass
     @Test
     public void should_cook_two_burger_with_two_cook(){
 
@@ -64,6 +66,7 @@ public class CookServiceTest {
         Assertions.assertThat(burgers).allMatch(burger -> burger.isHot(LocalDateTime.now()));
     }
 
+    // TODO 8 Run this test and see what's happening
     @Test
     public void should_cook_six_burger_with_two_cook(){
 
