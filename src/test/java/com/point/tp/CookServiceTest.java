@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 
 /**
  * Test class to make awesome burgers
@@ -48,5 +49,31 @@ public class CookServiceTest {
 
         Assertions.assertThat(burger).isNotNull();
         Assertions.assertThat(burger.isHot(now)).isTrue();
+    }
+
+    @Test
+    public void should_cook_two_burger_with_two_cook(){
+
+        // Given
+        ParallelCookService cookService = new ParallelCookService();
+
+        // When
+        List<Burger> burgers = cookService.cookBurger(2);
+
+        // Then
+        Assertions.assertThat(burgers).allMatch(burger -> burger.isHot(LocalDateTime.now()));
+    }
+
+    @Test
+    public void should_cook_six_burger_with_two_cook(){
+
+        // Given
+        ParallelCookService cookService = new ParallelCookService();
+
+        // When
+        List<Burger> burgers = cookService.cookBurger(6);
+
+        // Then
+        Assertions.assertThat(burgers).allMatch(burger -> burger.isHot(LocalDateTime.now()));
     }
 }
