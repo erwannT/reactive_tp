@@ -43,6 +43,31 @@ public class Burger {
         return release.isAfter(now.minus(3, ChronoUnit.SECONDS));
     }
 
+    /**
+     * Add the ingredient to the burger.
+     * All those intanceof are evil, but this is not the point :D
+     * @param ingredient
+     * @return
+     */
+    public Burger addIngredientToBurger(Ingredient ingredient) {
+        if (ingredient instanceof Bacon) {
+            setBacon((Bacon) ingredient);
+        } else if (ingredient instanceof Bread) {
+            setBread((Bread) ingredient);
+        } else if (ingredient instanceof Steak) {
+            setSteak((Steak) ingredient);
+        } else if (ingredient instanceof Tomato) {
+            setTomato((Tomato) ingredient);
+        } else if (ingredient instanceof Cheese) {
+            setCheese((Cheese) ingredient);
+        } else if (ingredient instanceof Salad) {
+            setSalad((Salad) ingredient);
+        } else if (ingredient instanceof Salsa) {
+            setSalsa((Salsa) ingredient);
+        }
+        return this;
+    }
+
     public boolean isComplete() {
         return bacon != null && bread != null && cheese != null && salad != null && salsa != null && steak != null && tomato != null;
     }
