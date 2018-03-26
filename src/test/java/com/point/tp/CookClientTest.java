@@ -46,24 +46,17 @@ public class CookClientTest {
         Salsa salsa = cookClient.takeSalsa();
         Assertions.assertThat(salsa).isNotNull();
 
-        Steak steack = cookClient.takeSteak();
-        Assertions.assertThat(steack).isNotNull();
+        Steak steak = cookClient.takeSteak();
+        Assertions.assertThat(steak).isNotNull();
 
-        Steak cookSteak = cookClient.cookSteak(steack);
+        Steak cookSteak = cookClient.cookSteak(steak);
         Assertions.assertThat(cookSteak).isNotNull();
         Assertions.assertThat(cookSteak.getState()).isEqualTo(SteakState.COOKED);
 
         Tomato tomato = cookClient.takeTomato();
         Assertions.assertThat(tomato).isNotNull();
 
-        Burger burger = new Burger();
-        burger.setBacon(cookBacon);
-        burger.setBread(cutBread);
-        burger.setCheese(cheese);
-        burger.setSalad(salad);
-        burger.setSalsa(salsa);
-        burger.setSteak(cookSteak);
-        burger.setTomato(tomato);
+        Burger burger = new Burger(cookBacon, cutBread,cheese,salad,salsa,cookSteak,tomato);
 
         // When
         Burger cookedBurger = cookClient.cook(burger);
@@ -71,5 +64,4 @@ public class CookClientTest {
         // Then
         Assertions.assertThat(cookedBurger).isNotNull();
     }
-
 }

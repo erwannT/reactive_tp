@@ -50,21 +50,13 @@ public class CookService {
         Steak steak = cookClient.takeSteak();
         // 9
         Steak cookSteak = cookClient.cookSteak(steak);
-        //10
+        // 10
         Tomato tomato = cookClient.takeTomato();
 
         // 11
-        Burger burger = new Burger();
-        burger.setBacon(cookBacon);
-        burger.setBread(cutBread);
-        burger.setCheese(cheese);
-        burger.setSalad(salad);
-        burger.setSalsa(salsa);
-        burger.setSteak(cookSteak);
-        burger.setTomato(tomato);
+        Burger burger = new Burger(cookBacon,cutBread,cheese,salad,salsa,cookSteak,tomato);
 
         // 12
         return cookClient.cook(burger);
     }
-
 }
