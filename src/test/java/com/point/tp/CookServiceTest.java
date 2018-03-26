@@ -3,6 +3,8 @@ package com.point.tp;
 import com.point.tp.client.model.Burger;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -75,5 +77,33 @@ public class CookServiceTest {
 
         // Then
         Assertions.assertThat(burgers).allMatch(burger -> burger.isHot(LocalDateTime.now()));
+    }
+
+    @Test
+    public void should_cook_burger_with_reactive(){
+
+        // Given
+        ReactiveCookService reactiveCookService = new ReactiveCookService();
+
+        // When
+        Mono<Burger> burgerMono = reactiveCookService.cookBurger();
+
+        // Then
+        Assertions.assertThat(burgerMono.block()).isNotNull();
+    }
+
+    @Test
+    public void should_cook_many_many_many_many_burger_with_reactive(){
+
+        // Given
+        ReactiveCookService reactiveCookService = new ReactiveCookService();
+
+        // When
+        Flux<Burger> burgerFlux = reactiveCookService.cookBurger(400);
+
+        // Then
+        Iterable<Burger> burgers = burgerFlux.toIterable();
+        LocalDateTime now = LocalDateTime.now();
+        Assertions.assertThat(burgers).allMatch(burger -> burger.isHot(now));
     }
 }
