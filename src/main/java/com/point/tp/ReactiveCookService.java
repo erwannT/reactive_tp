@@ -29,47 +29,28 @@ import reactor.core.publisher.Mono;
  */
 public class ReactiveCookService {
 
+
     /**
      * Cooks a {@link Burger}
      * @return a {@link Mono} having the burger
      */
+    // TODO 5 Using reactiveCookClient & reactive operators, implement the cookBurger method
     public Mono<Burger> cookBurger() {
 
         // Initializes the ReactiveCookClient
         ReactiveCookClient reactiveCookClient = new ReactiveCookClient();
 
         // 2, 3
-        Mono<Bacon> baconMono = reactiveCookClient
-            .takeBacon()
-            .flatMap(reactiveCookClient::cookBacon);
+        Mono<Bacon> baconMono = null;
 
         // 8, 9
-        Mono<Steak> steakMono = reactiveCookClient
-            .takeSteak()
-            .flatMap(reactiveCookClient::cookSteak);
+        Mono<Steak> steakMono = null;
         // 4, 5
-        Mono<Bread> breadMono = reactiveCookClient
-            .takeBread()
-            .flatMap(reactiveCookClient::cutBread);
+        Mono<Bread> breadMono = null;
 
-
-        return Flux.merge(
-            baconMono,
-            steakMono,
-            breadMono,
-            // 1
-            reactiveCookClient.takeCheese(),
-            // 6
-            reactiveCookClient.takeSalad(),
-            // 7
-            reactiveCookClient.takeSalsa(),
-            // 10
-            reactiveCookClient.takeTomato()
-        ).
-            // 11
-            reduce(new Burger(), Burger::addIngredientToBurger)
-            // 12
-            .flatMap(reactiveCookClient::cook);
+        // 1, 6, 7, 10, 11, 12
+        // You might use Burger.addIngredientToBurger & reactiveCookClient.cook methods
+        return null;
     }
 
     /**
@@ -77,12 +58,9 @@ public class ReactiveCookService {
      * @param howMany
      * @return a {@link Flux} having the burgers
      */
+    // TODO 8 Implements a method to launch several cooking at the same time
     public Flux<Burger> cookBurger(int howMany) {
-        Mono<Burger>[] burgerMonos = new Mono[howMany];
-        for (int i = 0; i < howMany; i++) {
-            burgerMonos[i] = cookBurger();
-        }
-        return Flux.merge(burgerMonos);
+        return null;
     }
 
 }

@@ -2,6 +2,7 @@ package com.point.tp;
 
 import com.point.tp.client.ReactiveCookClient;
 import com.point.tp.client.model.*;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,7 +21,10 @@ public class ReactiveCookClientTest {
     /**
      * Test method for {@link ReactiveCookClient#cook(Burger)}
      */
+    // TODO 1 Comment the @Ignore annotation, the test should fail
+    // TODO 3 Run the test again, it should pass
     @Test
+    @Ignore
     public void should_cook_a_burger() {
 
         // Given

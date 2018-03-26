@@ -2,6 +2,7 @@ package com.point.tp;
 
 import com.point.tp.client.model.Burger;
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
 import org.junit.Test;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -79,7 +80,10 @@ public class CookServiceTest {
         Assertions.assertThat(burgers).allMatch(burger -> burger.isHot(LocalDateTime.now()));
     }
 
+    // TODO 4 Comment the @Ignore annotation, the test should fail
+    // TODO 6 Run the test again, it should pass
     @Test
+    @Ignore
     public void should_cook_burger_with_reactive(){
 
         // Given
@@ -92,7 +96,11 @@ public class CookServiceTest {
         Assertions.assertThat(burgerMono.block()).isNotNull();
     }
 
+    // TODO 7 Comment the @Ignore annotation, the test should fail
+    // TODO 9 Run the test again, it should pass, see what's happening in your console
+    // You might look after 'Final operation : I'm cooking a gorgeous burger' logs
     @Test
+    @Ignore
     public void should_cook_many_many_many_many_burger_with_reactive(){
 
         // Given
