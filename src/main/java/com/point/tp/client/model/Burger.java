@@ -1,5 +1,6 @@
 package com.point.tp.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -12,6 +13,10 @@ import java.util.List;
  */
 @Data
 public class Burger {
+
+    @JsonIgnore
+    private Long id;
+
     private Bacon bacon;
     private Bread bread;
     private Cheese cheese;
