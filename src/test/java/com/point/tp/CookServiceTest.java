@@ -54,7 +54,7 @@ public class CookServiceTest {
     }
 
     @Test
-    public void should_cook_two_burger_with_two_cook(){
+    public void should_cook_two_burger_with_two_cook() {
 
         // Given
         ParalleleCookService cookService = new ParalleleCookService();
@@ -67,7 +67,7 @@ public class CookServiceTest {
     }
 
     @Test
-    public void should_cook_six_burger_with_two_cook(){
+    public void should_cook_six_burger_with_two_cook() {
 
         // Given
         ParalleleCookService cookService = new ParalleleCookService();
@@ -80,7 +80,7 @@ public class CookServiceTest {
     }
 
     @Test
-    public void should_cook_burger_with_reactive(){
+    public void should_cook_burger_with_reactive() {
 
         // Given
         ReactiveCookService reactiveCookService = new ReactiveCookService();
@@ -93,7 +93,7 @@ public class CookServiceTest {
     }
 
     @Test
-    public void should_cook_many_many_many_many_burger_with_reactive(){
+    public void should_cook_many_many_many_many_burger_with_reactive() {
 
         // Given
         ReactiveCookService reactiveCookService = new ReactiveCookService();
@@ -105,5 +105,20 @@ public class CookServiceTest {
         Iterable<Burger> burgers = burgerFlux.toIterable();
         LocalDateTime now = LocalDateTime.now();
         Assertions.assertThat(burgers).allMatch(burger -> burger.isHot(now));
+    }
+
+    @Test
+    public void should_cook_burger_with_async() {
+
+        // Given
+        AsyncCookService asyncCookService = new AsyncCookService();
+
+        // When
+        Burger burger = asyncCookService.cookBurger();
+
+        // Then
+        LocalDateTime now = LocalDateTime.now();
+        Assertions.assertThat(burger).isNotNull();
+        Assertions.assertThat(burger.isHot(now)).isTrue();
     }
 }
