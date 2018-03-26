@@ -10,6 +10,8 @@ import org.springframework.web.client.RestTemplate;
  */
 public class CookClient {
 
+    // TODO 1 : Read this class and see what's in there : classic sync calls
+
     /**
      * future-burger endpoint
      */

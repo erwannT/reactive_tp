@@ -2,6 +2,7 @@ package com.point.tp;
 
 import com.point.tp.client.model.Burger;
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
@@ -12,6 +13,9 @@ import java.time.temporal.ChronoUnit;
  */
 public class CookServiceTest {
 
+    // TODO 3 Comment the @Ignore annotation, the test should fail
+    // TODO 6 Run the test again, it should pass
+    @Ignore
     @Test
     public void should_cook_a_burger() {
 
@@ -29,7 +33,8 @@ public class CookServiceTest {
         Assertions.assertThat(burger.getRelease()).isAfter((now.minus(3, ChronoUnit.SECONDS)));
     }
 
-
+    // TODO 7 Comment the @Ignore annotation, and see what's happening
+    @Ignore
     @Test
     public void should_cook_two_burger_with_a_cook() {
 

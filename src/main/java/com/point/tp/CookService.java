@@ -32,31 +32,32 @@ public class CookService {
         // Initializes the CookClient
         CookClient cookClient = new CookClient();
 
+        // TODO 4 Cook ingredients and then a burger using CookClient
         // 1
-        Cheese cheese = cookClient.takeCheese();
+        Cheese cheese = null;
         // 2
-        Bacon bacon = cookClient.takeBacon();
+        Bacon bacon = null;
         // 3
-        Bacon cookBacon = cookClient.cookBacon(bacon);
+        Bacon cookBacon = null;
         // 4
-        Bread bread = cookClient.takeBread();
+        Bread bread = null;
         // 5
-        Bread cutBread = cookClient.cutBread(bread);
+        Bread cutBread = null;
         // 6
-        Salad salad = cookClient.takeSalad();
+        Salad salad = null;
         // 7
-        Salsa salsa = cookClient.takeSalsa();
+        Salsa salsa = null;
         // 8
-        Steak steak = cookClient.takeSteak();
+        Steak steak = null;
         // 9
-        Steak cookSteak = cookClient.cookSteak(steak);
+        Steak cookSteak = null;
         // 10
-        Tomato tomato = cookClient.takeTomato();
+        Tomato tomato = null;
 
         // 11
-        Burger burger = new Burger(cookBacon,cutBread,cheese,salad,salsa,cookSteak,tomato);
+        Burger burger = null;
 
         // 12
-        return cookClient.cook(burger);
+        return null;
     }
 }
