@@ -42,14 +42,18 @@ public class ReactiveCookService {
         ReactiveCookClient reactiveCookClient = new ReactiveCookClient();
 
         // 2, 3
-        Mono<Bacon> baconMono = null;
+        Mono<Bacon> baconMono = reactiveCookClient
+                .takeBacon()
+                .flatMap(reactiveCookClient::cookBacon);
 
         // 8, 9
         Mono<Steak> steakMono = null;
         // 4, 5
         Mono<Bread> breadMono = null;
 
-        // 1, 6, 7, 10, 11, 12
+        // 1, 6, 7, 10
+        // 11 use reduce
+        // 12 use flatMap
         // You might use Burger.addIngredientToBurger & reactiveCookClient.cook methods
         return null;
     }
@@ -59,9 +63,12 @@ public class ReactiveCookService {
      * @param howMany
      * @return a {@link Flux} having the burgers
      */
-    // TODO 8 Implements a method to launch several cooking at the same time
     public Flux<Burger> cookBurger(int howMany) {
-        return null;
+        Mono<Burger>[] burgerMonos = new Mono[howMany];
+        for (int i = 0; i < howMany; i++) {
+            burgerMonos[i] = cookBurger();
+        }
+        return Flux.merge(burgerMonos);
     }
 
 }

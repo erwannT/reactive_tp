@@ -103,10 +103,8 @@ public class CookServiceTest {
         Assertions.assertThat(burgerMono.block()).isNotNull();
     }
 
-    // TODO 7 Comment the @Ignore annotation, the test should fail
-    // TODO 9 Run the test again, it should pass, see what's happening in your console
+    // TODO 7 Run the test, it should pass, see what's happening in your console
     @Test
-    @Ignore
     public void should_cook_many_many_many_many_burger_with_reactive() throws InterruptedException{
 
         // Given
