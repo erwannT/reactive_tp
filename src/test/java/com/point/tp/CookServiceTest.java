@@ -107,7 +107,7 @@ public class CookServiceTest {
         log.info("We want to cook burgers");
         CountDownLatch latch = new CountDownLatch(1);
         ReactiveCookService reactiveCookService = new ReactiveCookService();
-        int numberOfBurgers = 400;
+        int numberOfBurgers = 100;
 
         // When
         Flux<Burger> burgerFlux = reactiveCookService.cookBurger(numberOfBurgers);
