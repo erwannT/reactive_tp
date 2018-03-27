@@ -26,7 +26,6 @@ public class ReactiveCookClient {
      * @return the newly created {@link Cheese} object
      */
     public Mono<Cheese> takeCheese() {
-        log.info("I'm taking a cheese");
         return webClient.get().uri("/burger/cheese").retrieve().bodyToMono(Cheese.class);
     }
 
@@ -37,7 +36,6 @@ public class ReactiveCookClient {
      * @return the newly created {@link Bacon} object
      */
     public Mono<Bacon> takeBacon() {
-        log.info("I'm taking a bacon");
         return webClient.get().uri("/burger/bacon").retrieve().bodyToMono(Bacon.class);
     }
 
@@ -48,7 +46,6 @@ public class ReactiveCookClient {
      * @return the updated {@link Bacon} object
      */
     public Mono<Bacon> cookBacon(Bacon bacon) {
-        log.info("I'm cooking a bacon");
         return webClient.post().uri("/burger/bacon")
                 .body(Mono.just(bacon), Bacon.class)
                 .retrieve().bodyToMono(Bacon.class);
@@ -61,7 +58,6 @@ public class ReactiveCookClient {
      * @return the newly created {@link Bread} object
      */
     public Mono<Bread> takeBread() {
-        log.info("I'm taking a bread");
         return webClient.get().uri("/burger/bread").retrieve().bodyToMono(Bread.class);
     }
 
@@ -72,7 +68,6 @@ public class ReactiveCookClient {
      * @return the updated {@link Bread} object
      */
     public Mono<Bread> cutBread(Bread bread) {
-        log.info("I'm cutting the bread");
         return webClient.post().uri("/burger/bread")
                 .body(Mono.just(bread), Bread.class)
                 .retrieve().bodyToMono(Bread.class);
@@ -85,7 +80,6 @@ public class ReactiveCookClient {
      * @return the newly created {@link Salad} object
      */
     public Mono<Salad> takeSalad() {
-        log.info("I'm taking some salad");
         return webClient.get().uri("/burger/salad").retrieve().bodyToMono(Salad.class);
     }
 
@@ -96,7 +90,6 @@ public class ReactiveCookClient {
      * @return the newly created {@link Salsa} object
      */
     public Mono<Salsa> takeSalsa() {
-        log.info("I'm taking some salsa");
         return webClient.get().uri("/burger/salsa").retrieve().bodyToMono(Salsa.class);
     }
 
@@ -107,7 +100,6 @@ public class ReactiveCookClient {
      * @return the newly created {@link Steak} object
      */
     public Mono<Steak> takeSteak() {
-        log.info("I'm taking a steak");
         return webClient.get().uri("/burger/steak").retrieve().bodyToMono(Steak.class);
     }
 
@@ -118,7 +110,6 @@ public class ReactiveCookClient {
      * @return the updated {@link Steak} object
      */
     public Mono<Steak> cookSteak(Steak steak) {
-        log.info("I'm cooking a steak");
         return webClient.post().uri("/burger/steak").body(Mono.just(steak), Steak.class).retrieve().bodyToMono(Steak.class);
     }
 
@@ -129,7 +120,6 @@ public class ReactiveCookClient {
      * @return the newly created {@link Tomato} object
      */
     public Mono<Tomato> takeTomato() {
-        log.info("I'm taking a tomato");
         return webClient.get().uri("/burger/tomato").retrieve().bodyToMono(Tomato.class);
     }
 
@@ -140,7 +130,6 @@ public class ReactiveCookClient {
      * @return the awesome {@link Burger} object
      */
     public Mono<Burger> cook(Burger burger) {
-        log.info("Final operation : I'm cooking a gorgeous burger");
         return webClient.post().uri("/burger").body(Mono.just(burger), Burger.class).retrieve().bodyToMono(Burger.class);
     }
 }
