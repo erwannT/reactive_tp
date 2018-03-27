@@ -100,7 +100,9 @@ public class CookServiceTest {
         Mono<Burger> burgerMono = reactiveCookService.cookBurger();
 
         // Then
-        Assertions.assertThat(burgerMono.block()).isNotNull();
+        Burger burger = burgerMono.block();
+        assertThat(burger).isNotNull();
+        assertThat(burger.isHot(LocalDateTime.now())).isTrue();
     }
 
     // TODO 7 Run the test, it should pass, see what's happening in your console
