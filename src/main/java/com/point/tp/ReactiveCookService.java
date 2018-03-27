@@ -35,6 +35,7 @@ public class ReactiveCookService {
      * @return a {@link Mono} having the burger
      */
     // TODO 5 Using reactiveCookClient & reactive operators, implement the cookBurger method
+    // You might use Flux.merge and reduce & flatMap operators
     public Mono<Burger> cookBurger() {
 
         // Initializes the ReactiveCookClient
