@@ -2,7 +2,6 @@ package com.point.tp;
 
 import com.point.tp.client.model.Burger;
 import org.assertj.core.api.Assertions;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
@@ -13,7 +12,7 @@ import java.time.temporal.ChronoUnit;
  */
 public class CookServiceTest {
 
-    // TODO 3 Comment the @Ignore annotation, the test should fail
+    // TODO 3 Run this tests, it should fail
     // TODO 5 Run the test again, it should pass
     @Test
     public void should_cook_a_burger() {

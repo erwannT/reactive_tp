@@ -34,11 +34,11 @@ public class CookService {
 
         // TODO 4 Cook ingredients and then a burger using CookClient
         // 1
-        Cheese cheese = null;
+        Cheese cheese = cookClient.takeCheese();
         // 2
-        Bacon bacon = null;
+        Bacon bacon = cookClient.takeBacon();
         // 3
-        Bacon cookBacon = null;
+        Bacon cookBacon = cookClient.cookBacon(bacon);
         // 4
         Bread bread = null;
         // 5
