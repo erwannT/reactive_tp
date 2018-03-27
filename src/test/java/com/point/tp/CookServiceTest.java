@@ -1,6 +1,7 @@
 package com.point.tp;
 
 import com.point.tp.client.model.Burger;
+import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -9,11 +10,17 @@ import reactor.core.publisher.Mono;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Test class to make awesome burgers
  */
+@Slf4j
 public class CookServiceTest {
 
     @Test
@@ -98,20 +105,40 @@ public class CookServiceTest {
 
     // TODO 7 Comment the @Ignore annotation, the test should fail
     // TODO 9 Run the test again, it should pass, see what's happening in your console
-    // You might look after 'Final operation : I'm cooking a gorgeous burger' logs
     @Test
     @Ignore
-    public void should_cook_many_many_many_many_burger_with_reactive(){
+    public void should_cook_many_many_many_many_burger_with_reactive() throws InterruptedException{
 
         // Given
+        log.info("We want to cook burgers");
+        CountDownLatch latch = new CountDownLatch(1);
         ReactiveCookService reactiveCookService = new ReactiveCookService();
+        int numberOfBurgers = 100;
 
         // When
-        Flux<Burger> burgerFlux = reactiveCookService.cookBurger(400);
+        Flux<Burger> burgerFlux = reactiveCookService.cookBurger(numberOfBurgers);
 
         // Then
-        Iterable<Burger> burgers = burgerFlux.toIterable();
+        //Iterable<Burger> burgers = burgerFlux.toIterable();
+
+        List<Burger> burgersReadyToBeServed = new ArrayList<>(numberOfBurgers);
+        burgerFlux.subscribe(b -> burgersReadyToBeServed.add(b), System.err::println, () -> {
+            log.info("We cooked all delightful burgers");
+            latch.countDown();
+        });
+
+        assertThat(latch.await(600, TimeUnit.SECONDS)).isTrue();
+
+        log.info(burgersReadyToBeServed.get(0).getRelease().toString());
+        log.info(burgersReadyToBeServed.get(numberOfBurgers - 1).getRelease().toString());
+
         LocalDateTime now = LocalDateTime.now();
-        Assertions.assertThat(burgers).allMatch(burger -> burger.isHot(now));
+        long count = burgersReadyToBeServed.stream().filter(b -> b.isHot(now)).count();
+
+        log.info(count + " burgers chauds");
+        log.info(numberOfBurgers - count + " burgers froids");
+        assertThat(numberOfBurgers - count)
+                .as("Aucun burger ne devrait être froid")
+                .isEqualTo(0);
     }
 }
