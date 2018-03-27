@@ -56,6 +56,7 @@ public class ParallelCookService {
      */
     private void sendOrders(int howMany, CompletionService<Burger> completionService) {
         // TODO 4 Implement the sendOrder methods
+        // You might use submit method
     }
 
     /**
@@ -80,6 +81,7 @@ public class ParallelCookService {
     private Burger retrieveCookedBurger(CompletionService<Burger> completionService) {
         //try {
             // TODO 6 retrieve the next ready burger
+            // You moght use take, and then get method
             // You will uncomment the try-catch block
             return null;
         //} catch (InterruptedException | ExecutionException e) {
