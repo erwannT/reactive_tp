@@ -18,8 +18,7 @@ public class CookClientTest {
     /**
      * Test method for {@link CookClient#cook(Burger)}
      */
-    // TODO 2 Run the test, it should not pass
-    // TODO 5 Run the test, it should pass
+    // TODO 2 Run the test, it should pass
     @Test
     public void should_cook_a_burger() {
 

@@ -39,6 +39,12 @@ public class Burger {
         return Arrays.asList(bacon, bread, cheese, salad, salsa, steak, tomato);
     }
 
+    /**
+     * A burger is hot when it is released 3 seconds after being cooked.
+     *
+     * @param now
+     * @return
+     */
     public boolean isHot(LocalDateTime now) {
         return release.isAfter(now.minus(3, ChronoUnit.SECONDS));
     }
