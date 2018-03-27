@@ -29,7 +29,6 @@ public class CookServiceTest {
         Assertions.assertThat(burger.getRelease()).isAfter((now.minus(3, ChronoUnit.SECONDS)));
     }
 
-
     @Test
     public void should_cook_two_burger_with_a_cook() {
 
