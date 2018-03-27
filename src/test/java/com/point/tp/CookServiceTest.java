@@ -95,7 +95,9 @@ public class CookServiceTest {
         Mono<Burger> burgerMono = reactiveCookService.cookBurger();
 
         // Then
-        assertThat(burgerMono.block()).isNotNull();
+        Burger burger = burgerMono.block();
+        assertThat(burger).isNotNull();
+        assertThat(burger.isHot(LocalDateTime.now())).isTrue();
     }
 
     @Test
