@@ -2,11 +2,12 @@ package com.point.tp;
 
 import com.point.tp.client.CookClient;
 import com.point.tp.client.model.*;
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Test class for {@link CookClient}
@@ -25,36 +26,36 @@ public class CookClientTest {
         CookClient cookClient = new CookClient();
 
         Cheese cheese = cookClient.takeCheese();
-        Assertions.assertThat(cheese).isNotNull();
+        assertThat(cheese).isNotNull();
 
         Bacon bacon = cookClient.takeBacon();
-        Assertions.assertThat(bacon).isNotNull();
+        assertThat(bacon).isNotNull();
 
         Bacon cookBacon = cookClient.cookBacon(bacon);
-        Assertions.assertThat(cookBacon).isNotNull();
-        Assertions.assertThat(cookBacon.getState()).isEqualTo(BaconState.COOKED);
+        assertThat(cookBacon).isNotNull();
+        assertThat(cookBacon.getState()).isEqualTo(BaconState.COOKED);
 
         Bread bread = cookClient.takeBread();
-        Assertions.assertThat(bread).isNotNull();
+        assertThat(bread).isNotNull();
         Bread cutBread = cookClient.cutBread(bread);
-        Assertions.assertThat(cutBread).isNotNull();
-        Assertions.assertThat(cutBread.getState()).isEqualTo(BreadState.CUT);
+        assertThat(cutBread).isNotNull();
+        assertThat(cutBread.getState()).isEqualTo(BreadState.CUT);
 
         Salad salad = cookClient.takeSalad();
-        Assertions.assertThat(salad).isNotNull();
+        assertThat(salad).isNotNull();
 
         Salsa salsa = cookClient.takeSalsa();
-        Assertions.assertThat(salsa).isNotNull();
+        assertThat(salsa).isNotNull();
 
         Steak steak = cookClient.takeSteak();
-        Assertions.assertThat(steak).isNotNull();
+        assertThat(steak).isNotNull();
 
         Steak cookSteak = cookClient.cookSteak(steak);
-        Assertions.assertThat(cookSteak).isNotNull();
-        Assertions.assertThat(cookSteak.getState()).isEqualTo(SteakState.COOKED);
+        assertThat(cookSteak).isNotNull();
+        assertThat(cookSteak.getState()).isEqualTo(SteakState.COOKED);
 
         Tomato tomato = cookClient.takeTomato();
-        Assertions.assertThat(tomato).isNotNull();
+        assertThat(tomato).isNotNull();
 
         Burger burger = new Burger(cookBacon, cutBread,cheese,salad,salsa,cookSteak,tomato);
 
@@ -62,6 +63,6 @@ public class CookClientTest {
         Burger cookedBurger = cookClient.cook(burger);
 
         // Then
-        Assertions.assertThat(cookedBurger).isNotNull();
+        assertThat(cookedBurger).isNotNull();
     }
 }
