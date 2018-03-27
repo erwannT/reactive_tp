@@ -119,8 +119,6 @@ public class CookServiceTest {
         Flux<Burger> burgerFlux = reactiveCookService.cookBurger(numberOfBurgers);
 
         // Then
-        //Iterable<Burger> burgers = burgerFlux.toIterable();
-
         List<Burger> burgersReadyToBeServed = new ArrayList<>(numberOfBurgers);
         burgerFlux.subscribe(b -> burgersReadyToBeServed.add(b), System.err::println, () -> {
             log.info("We cooked all delightful burgers");
