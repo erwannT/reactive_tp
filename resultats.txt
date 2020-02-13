@@ -1,0 +1,65 @@
+## STRATEGY BUFFER, maxSize 2, DROP_LATEST
+
+20:29:32.701 [parallel-4] INFO com.point.tp.CookServiceTest - 36 burgers have been wasted :/
+20:29:32.708 [parallel-4] INFO com.point.tp.CookServiceTest - [35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94]
+20:29:32.708 [parallel-4] INFO com.point.tp.CookServiceTest - 24 burgers were cold :X
+20:29:32.709 [parallel-4] INFO com.point.tp.CookServiceTest - [29, 30, 31, 32, 33, 34, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70]
+20:29:32.709 [parallel-4] INFO com.point.tp.CookServiceTest - 40 burgers were good :D
+20:29:32.709 [parallel-4] INFO com.point.tp.CookServiceTest - [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 47, 48, 49, 50, 51, 52, 95, 96, 97, 98, 99, 100]
+
+## STRATEGY BUFFER, maxSize 10, DROP_LATEST
+
+20:39:17.754 [parallel-12] INFO com.point.tp.CookServiceTest - 28 burgers have been wasted :/
+20:39:17.762 [parallel-12] INFO com.point.tp.CookServiceTest - [43, 44, 45, 46, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94]
+20:39:17.762 [parallel-12] INFO com.point.tp.CookServiceTest - 44 burgers were cold :X
+20:39:17.762 [parallel-12] INFO com.point.tp.CookServiceTest - [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 95, 96, 97, 98, 99, 100]
+20:39:17.762 [parallel-12] INFO com.point.tp.CookServiceTest - 28 burgers were good :D
+20:39:17.762 [parallel-12] INFO com.point.tp.CookServiceTest - [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
+
+## STRATEGY BUFFER, maxSize 2, DROP_OLDEST
+
+20:31:40.285 [parallel-4] INFO com.point.tp.CookServiceTest - 36 burgers have been wasted :/
+20:31:40.292 [parallel-4] INFO com.point.tp.CookServiceTest - [33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92]
+20:31:40.292 [parallel-4] INFO com.point.tp.CookServiceTest - 20 burgers were cold :X
+20:31:40.292 [parallel-4] INFO com.point.tp.CookServiceTest - [29, 30, 31, 32, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68]
+20:31:40.292 [parallel-4] INFO com.point.tp.CookServiceTest - 44 burgers were good :D
+20:31:40.292 [parallel-4] INFO com.point.tp.CookServiceTest - [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 45, 46, 47, 48, 49, 50, 51, 52, 93, 94, 95, 96, 97, 98, 99, 100]
+
+## STRATEGY BUFFER, maxSize 10, DROP_OLDEST
+
+20:38:03.215 [parallel-12] INFO com.point.tp.CookServiceTest - 28 burgers have been wasted :/
+20:38:03.222 [parallel-12] INFO com.point.tp.CookServiceTest - [33, 34, 35, 36, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84]
+20:38:03.222 [parallel-12] INFO com.point.tp.CookServiceTest - 43 burgers were cold :X
+20:38:03.223 [parallel-12] INFO com.point.tp.CookServiceTest - [29, 30, 31, 32, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100]
+20:38:03.223 [parallel-12] INFO com.point.tp.CookServiceTest - 29 burgers were good :D
+20:38:03.223 [parallel-12] INFO com.point.tp.CookServiceTest - [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 85]
+
+## STRATEGY DROP
+
+20:48:49.836 [parallel-2] INFO com.point.tp.CookServiceTest - 38 burgers have been wasted :/
+20:48:49.842 [parallel-2] INFO com.point.tp.CookServiceTest - [33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94]
+20:48:49.842 [parallel-2] INFO com.point.tp.CookServiceTest - 18 burgers were cold :X
+20:48:49.842 [parallel-2] INFO com.point.tp.CookServiceTest - [29, 30, 31, 32, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70]
+20:48:49.842 [parallel-2] INFO com.point.tp.CookServiceTest - 44 burgers were good :D
+20:48:49.843 [parallel-2] INFO com.point.tp.CookServiceTest - [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 95, 96, 97, 98, 99, 100]
+
+## STRATEGY LATEST
+
+20:51:06.785 [parallel-3] INFO com.point.tp.CookServiceTest - 0 burgers have been wasted :/
+20:51:06.792 [parallel-3] INFO com.point.tp.CookServiceTest - []
+20:51:06.792 [parallel-3] INFO com.point.tp.CookServiceTest - 19 burgers were cold :X
+20:51:06.792 [parallel-3] INFO com.point.tp.CookServiceTest - [29, 30, 31, 32, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69]
+20:51:06.792 [parallel-3] INFO com.point.tp.CookServiceTest - 44 burgers were good :D
+20:51:06.792 [parallel-3] INFO com.point.tp.CookServiceTest - [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 46, 47, 48, 49, 50, 51, 52, 53, 54, 94, 95, 96, 97, 98, 99, 100]
+
+## STRATEGY ERROR
+20:59:10.145 [parallel-4] INFO com.point.tp.CookServiceTest - A customer has requested burger 16
+20:59:10.145 [parallel-4] INFO com.point.tp.CookServiceTest - Good burger !!!
+20:59:10.166 [Thread-0] INFO com.point.tp.CookServiceTest - Cook burger 32
+20:59:10.172 [Restaurant-2] INFO com.point.tp.CookServiceTest - 0 burgers have been wasted :/
+20:59:10.178 [Restaurant-2] INFO com.point.tp.CookServiceTest - []
+20:59:10.178 [Restaurant-2] INFO com.point.tp.CookServiceTest - 0 burgers were cold :X
+20:59:10.178 [Restaurant-2] INFO com.point.tp.CookServiceTest - []
+20:59:10.178 [Restaurant-2] INFO com.point.tp.CookServiceTest - 16 burgers were good :D
+20:59:10.179 [Restaurant-2] INFO com.point.tp.CookServiceTest - [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+20:59:10.182 [Restaurant-2] ERROR reactor.core.scheduler.Schedulers - Scheduler worker in group main failed with an uncaught exception
