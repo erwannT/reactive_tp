@@ -12,6 +12,7 @@ import java.util.List;
  */
 @Data
 public class Burger {
+    private Long id;
     private Bacon bacon;
     private Bread bread;
     private Cheese cheese;
